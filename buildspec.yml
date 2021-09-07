@@ -23,3 +23,4 @@ phases:
       - echo Pushing the Docker images...
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - aws ecs list-tasks --cluster default --output text | awk '{print $2}' | while read line ; do aws ecs stop-task --task "$line" --cluster default ; done
