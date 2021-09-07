@@ -26,7 +26,3 @@ phases:
       - aws ecs list-tasks --cluster default --output text | awk '{print $2}' | while read line ; do aws ecs stop-task --task "$line" --cluster default ; done
       - printf '[{"name":"your.task.definition.name","imageUri":"%s"}]' 588792668449.dkr.ecr.ap-south-1.amazonaws.com/$REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
       - cat imagedefinitions.json
-  artifacts:
-    files:
-      - imagedefinitions.json
-      - '**/*'
