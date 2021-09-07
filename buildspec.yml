@@ -29,5 +29,5 @@ phases:
 artifacts:
   files:
     - '**/*'
-    -imagedefinitions.json
+    - imagedefinitions.json
   name: s3-to-s3-latest-build.zip
